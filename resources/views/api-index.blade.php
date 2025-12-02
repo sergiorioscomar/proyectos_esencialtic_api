@@ -98,6 +98,24 @@
 
       <tr>
         <td><span class="method GET">GET</span></td>
+        <td>/api/profile</td>
+        <td>Ver los datos del perfil autenticado</td>
+      </tr>
+
+      <tr>
+        <td><span class="method PUT">PUT</span></td>
+        <td>/api/profile</td>
+        <td>Actualizar nombre, usuario o foto de perfil</td>
+      </tr>
+
+      <tr>
+        <td><span class="method PUT">PUT</span></td>
+        <td>/api/profile/password</td>
+        <td>Cambiar la contraseña del perfil</td>
+      </tr>
+
+      <tr>
+        <td><span class="method GET">GET</span></td>
         <td>/api/posts</td>
         <td>Listar todos los posts</td>
       </tr>
@@ -148,6 +166,48 @@
         <td><span class="method POST">POST</span></td>
         <td>/api/users/{id}/role</td>
         <td>Modificar el rol de un usuario</td>
+      </tr>
+
+      <tr>
+        <td><span class="method GET">GET</span></td>
+        <td>/api/services</td>
+        <td>Listar todos los servicios disponibles</td>
+      </tr>
+
+      <tr>
+        <td><span class="method GET">GET</span></td>
+        <td>/api/services/{id}</td>
+        <td>Ver el detalle de un servicio</td>
+      </tr>
+
+      <tr>
+        <td><span class="method POST">POST</span></td>
+        <td>/api/services/{id}/hire</td>
+        <td>Contratar un servicio (usuario autenticado)</td>
+      </tr>
+
+      <tr>
+        <td><span class="method POST">POST</span></td>
+        <td>/api/services</td>
+        <td>Crear un nuevo servicio (solo admin)</td>
+      </tr>
+
+      <tr>
+        <td><span class="method PUT">PUT</span></td>
+        <td>/api/services/{id}</td>
+        <td>Actualizar un servicio (solo admin)</td>
+      </tr>
+
+      <tr>
+        <td><span class="method DELETE">DELETE</span></td>
+        <td>/api/services/{id}</td>
+        <td>Eliminar un servicio (solo admin)</td>
+      </tr>
+
+      <tr>
+        <td><span class="method GET">GET</span></td>
+        <td>/api/service-hires</td>
+        <td>Listar contrataciones de servicios (solo admin)</td>
       </tr>
 
     </tbody>
