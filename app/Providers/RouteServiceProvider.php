@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+// app/Providers/AuthServiceProvider.php
+use Illuminate\Auth\Notifications\ResetPassword;
+
 
 class RouteServiceProvider extends ServiceProvider
 {
