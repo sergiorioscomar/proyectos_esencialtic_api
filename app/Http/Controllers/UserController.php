@@ -18,6 +18,12 @@ class UserController extends Controller
         $request->validate([
             'role' => 'required|in:admin,user'
         ]);
+        // Valido que el id de usuario sea 1 o 2. id=2 es  mi super admin (serggio.rs@gmail.com)
+        if (!in_array($request->user()->id, [1, 2], true)) {
+            return response()->json([
+                'message' => 'No tenés permisos para actualizar roles'
+            ], 403);
+        }
 
         // Buscar usuario
         $user = User::find($id);
