@@ -88,12 +88,24 @@ class ServiceController extends Controller
 
         $user = $request->user();
 
-        if ($user->services()->whereKey($id)->exists()) {
-            return response()->json(['error' => 'Ya contrataste este servicio'], 409);
+        $existing = $user->services()->where('service_id', $id)->first();
+
+        if ($existing) {
+            if ($existing->pivot->quote_status === 'sin_cotizar') {
+                return response()->json(['error' => 'Ya existe una cotización pendiente'], 409);
+            }
+
+            $user->services()->updateExistingPivot($id, [
+                'quote_status' => 'sin_cotizar',
+                'quote_sent_at' => null,
+                'updated_at' => now(),
+            ]);
+
+            return response()->json(['message' => 'Se solicitó nuevamente la cotización']);
         }
 
         $user->services()->attach($id, ['quote_status' => 'sin_cotizar']);
 
-        return response()->json(['message' => 'Servicio contratado']);
+        return response()->json(['message' => 'Cotización solicitada']);
     }
 }

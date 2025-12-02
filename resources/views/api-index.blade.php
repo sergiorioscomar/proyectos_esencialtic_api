@@ -195,7 +195,7 @@
       <tr>
         <td><span class="method POST">POST</span></td>
         <td>/api/services/{id}/hire</td>
-        <td>Contratar un servicio (usuario autenticado)</td>
+        <td>Solicitar una cotización de servicio (usuario autenticado)</td>
       </tr>
 
       <tr>
@@ -225,13 +225,13 @@
       <tr>
         <td><span class="method PUT">PUT</span></td>
         <td>/api/service-hires/{service_id}/{user_id}/status</td>
-        <td>Actualizar estado de una contratación (solo admin)</td>
+        <td>Actualizar estado de una cotización (solo admin)</td>
       </tr>
 
       <tr>
         <td><span class="method DELETE">DELETE</span></td>
         <td>/api/service-hires/{service_id}/{user_id}</td>
-        <td>Eliminar una contratación (solo admin)</td>
+        <td>Eliminar una cotización (solo admin)</td>
       </tr>
 
       <tr>
