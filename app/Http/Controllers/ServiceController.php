@@ -29,13 +29,15 @@ class ServiceController extends Controller
     // Crear servicio (solo admin)
     public function store(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'title' => 'required|string',
             'description' => 'nullable|string',
+            'image_url' => 'nullable|url',
+            'category' => 'nullable|string|max:100',
             'price' => 'required|numeric',
         ]);
 
-        $service = Service::create($request->all());
+        $service = Service::create($data);
 
         return response()->json($service, 201);
     }
@@ -49,7 +51,15 @@ class ServiceController extends Controller
             return response()->json(['error' => 'Servicio no encontrado'], 404);
         }
 
-        $service->update($request->all());
+        $data = $request->validate([
+            'title' => 'sometimes|required|string',
+            'description' => 'sometimes|nullable|string',
+            'image_url' => 'sometimes|nullable|url',
+            'category' => 'sometimes|nullable|string|max:100',
+            'price' => 'sometimes|required|numeric',
+        ]);
+
+        $service->update($data);
 
         return response()->json($service);
     }
@@ -68,7 +78,7 @@ class ServiceController extends Controller
         return response()->json(['message' => 'Servicio eliminado']);
     }
 
-    public function hire($id)
+    public function hire(Request $request, $id)
     {
         $service = Service::find($id);
 
@@ -76,13 +86,14 @@ class ServiceController extends Controller
             return response()->json(['error' => 'Servicio no encontrado'], 404);
         }
 
-        auth()->user()->services()->attach($id);
+        $user = $request->user();
+
+        if ($user->services()->whereKey($id)->exists()) {
+            return response()->json(['error' => 'Ya contrataste este servicio'], 409);
+        }
+
+        $user->services()->attach($id);
 
         return response()->json(['message' => 'Servicio contratado']);
-    }
-
-    public function services()
-    {
-        return $this->belongsToMany(Service::class);
     }
 }
