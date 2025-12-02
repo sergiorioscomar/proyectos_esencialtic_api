@@ -93,25 +93,25 @@
       <tr>
         <td><span class="method POST">POST</span></td>
         <td>/api/logout</td>
-        <td>Cerrar sesión invalidando token</td>
+        <td>Cerrar sesión invalidando token (usuario autenticado)</td>
       </tr>
 
       <tr>
         <td><span class="method GET">GET</span></td>
         <td>/api/profile</td>
-        <td>Ver los datos del perfil autenticado</td>
+        <td>Ver los datos del perfil autenticado (usuario autenticado)</td>
       </tr>
 
       <tr>
         <td><span class="method PUT">PUT</span></td>
         <td>/api/profile</td>
-        <td>Actualizar nombre, usuario o foto de perfil</td>
+        <td>Actualizar nombre, usuario o foto de perfil (usuario autenticado)</td>
       </tr>
 
       <tr>
         <td><span class="method PUT">PUT</span></td>
         <td>/api/profile/password</td>
-        <td>Cambiar la contraseña del perfil</td>
+        <td>Cambiar la contraseña del perfil (usuario autenticado)</td>
       </tr>
 
       <tr>
@@ -153,13 +153,13 @@
       <tr>
         <td><span class="method GET">GET</span></td>
         <td>/api/user</td>
-        <td>Obtener datos del usuario autenticado</td>
+        <td>Obtener datos del usuario autenticado (usuario autenticado)</td>
       </tr>
 
       <tr>
         <td><span class="method GET">GET</span></td>
         <td>/api/users</td>
-        <td>Listar todos los usuarios</td>
+        <td>Listar todos los usuarios (solo admin)</td>
       </tr>
 
       <tr>
@@ -171,13 +171,13 @@
       <tr>
         <td><span class="method GET">GET</span></td>
         <td>/api/services</td>
-        <td>Listar todos los servicios disponibles</td>
+        <td>Listar todos los servicios disponibles (usuario autenticado)</td>
       </tr>
 
       <tr>
         <td><span class="method GET">GET</span></td>
         <td>/api/services/{id}</td>
-        <td>Ver el detalle de un servicio</td>
+        <td>Ver el detalle de un servicio (usuario autenticado)</td>
       </tr>
 
       <tr>
