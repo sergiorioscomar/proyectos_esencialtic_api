@@ -27,6 +27,8 @@ class User extends Authenticatable
 
     public function services(): BelongsToMany
     {
-        return $this->belongsToMany(Service::class)->withTimestamps();
+        return $this->belongsToMany(Service::class)
+            ->withPivot(['quote_status', 'quote_sent_at'])
+            ->withTimestamps();
     }
 }

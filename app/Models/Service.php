@@ -17,6 +17,8 @@ class Service extends Model
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class)->withTimestamps();
+        return $this->belongsToMany(User::class)
+            ->withPivot(['quote_status', 'quote_sent_at'])
+            ->withTimestamps();
     }
 }

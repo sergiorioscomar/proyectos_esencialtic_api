@@ -151,6 +151,18 @@
       </tr>
 
       <tr>
+        <td><span class="method POST">POST</span></td>
+        <td>/api/forgot-password</td>
+        <td>Solicitar email con enlace para restablecer contraseña</td>
+      </tr>
+
+      <tr>
+        <td><span class="method POST">POST</span></td>
+        <td>/api/reset-password</td>
+        <td>Restablecer contraseña usando token recibido por correo</td>
+      </tr>
+
+      <tr>
         <td><span class="method GET">GET</span></td>
         <td>/api/user</td>
         <td>Obtener datos del usuario autenticado (usuario autenticado)</td>
@@ -208,6 +220,24 @@
         <td><span class="method GET">GET</span></td>
         <td>/api/service-hires</td>
         <td>Listar contrataciones de servicios (solo admin)</td>
+      </tr>
+
+      <tr>
+        <td><span class="method PUT">PUT</span></td>
+        <td>/api/service-hires/{service_id}/{user_id}/status</td>
+        <td>Actualizar estado de una contratación (solo admin)</td>
+      </tr>
+
+      <tr>
+        <td><span class="method DELETE">DELETE</span></td>
+        <td>/api/service-hires/{service_id}/{user_id}</td>
+        <td>Eliminar una contratación (solo admin)</td>
+      </tr>
+
+      <tr>
+        <td><span class="method POST">POST</span></td>
+        <td>/api/cotizaciones/enviar</td>
+        <td>Enviar cotización por email y marcar como cotizada (solo admin)</td>
       </tr>
 
     </tbody>

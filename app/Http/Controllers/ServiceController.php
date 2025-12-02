@@ -92,7 +92,7 @@ class ServiceController extends Controller
             return response()->json(['error' => 'Ya contrataste este servicio'], 409);
         }
 
-        $user->services()->attach($id);
+        $user->services()->attach($id, ['quote_status' => 'sin_cotizar']);
 
         return response()->json(['message' => 'Servicio contratado']);
     }

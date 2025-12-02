@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServiceHireController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PasswordResetController;
+use App\Http\Controllers\CotizacionController;
 
 Route::get('/', function () {
     return view('api-index');
@@ -15,6 +17,8 @@ Route::get('/', function () {
 // Rutas públicas
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/forgot-password', [PasswordResetController::class, 'sendResetLinkEmail']);
+Route::post('/reset-password', [PasswordResetController::class, 'reset']);
 //posts
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show']);
@@ -47,4 +51,7 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::put('/services/{id}', [ServiceController::class, 'update']);
     Route::delete('/services/{id}', [ServiceController::class, 'destroy']);
     Route::get('/service-hires', [ServiceHireController::class, 'index']);
+    Route::put('/service-hires/{service}/{user}/status', [ServiceHireController::class, 'updateStatus']);
+    Route::delete('/service-hires/{service}/{user}', [ServiceHireController::class, 'destroy']);
+    Route::post('/cotizaciones/enviar', [CotizacionController::class, 'send']);
 });
