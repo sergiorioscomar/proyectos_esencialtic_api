@@ -123,7 +123,7 @@
       <tr>
         <td><span class="method POST">POST</span></td>
         <td>/api/posts</td>
-        <td>Crear un nuevo post</td>
+        <td>Crear un nuevo post (solo admin)</td>
       </tr>
 
       <tr>
@@ -135,13 +135,13 @@
       <tr>
         <td><span class="method PUT">PUT</span></td>
         <td>/api/posts/{id}</td>
-        <td>Actualizar un post existente</td>
+        <td>Actualizar un post existente (solo admin)</td>
       </tr>
 
       <tr>
         <td><span class="method DELETE">DELETE</span></td>
         <td>/api/posts/{id}</td>
-        <td>Eliminar un post</td>
+        <td>Eliminar un post (solo admin)</td>
       </tr>
 
       <tr>
@@ -165,7 +165,7 @@
       <tr>
         <td><span class="method POST">POST</span></td>
         <td>/api/users/{id}/role</td>
-        <td>Modificar el rol de un usuario</td>
+        <td>Modificar el rol de un usuario (solo superadmin)</td>
       </tr>
 
       <tr>
