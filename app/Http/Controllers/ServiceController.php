@@ -34,6 +34,7 @@ class ServiceController extends Controller
             'description' => 'nullable|string',
             'image_url' => 'nullable|url',
             'category' => 'nullable|string|max:100',
+            'content' => 'nullable|string',
             'price' => 'required|numeric',
         ]);
 
@@ -56,6 +57,7 @@ class ServiceController extends Controller
             'description' => 'sometimes|nullable|string',
             'image_url' => 'sometimes|nullable|url',
             'category' => 'sometimes|nullable|string|max:100',
+            'content' => 'sometimes|nullable|string',
             'price' => 'sometimes|required|numeric',
         ]);
 

@@ -12,6 +12,7 @@ class Service extends Model
         'description',
         'image_url',
         'category',
+        'content',
         'price'
     ];
 
